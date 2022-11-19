@@ -1,1 +1,1 @@
-# cppgredbook
+-lgtest -lpthread -lgflags -lglog -lcurl -lboost_thread -lworkflow
