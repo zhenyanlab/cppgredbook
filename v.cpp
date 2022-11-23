@@ -1,21 +1,23 @@
 #include "v.h"
-int TestD::ddd() {
+int TestD::ddd()
+{
 
-	//fasdfadsf
+	// fasdfadsf
 	return 2;
-
 }
-int TestDD::ddd() {
+int TestDD::ddd()
+{
 
-	//fasdfadsf
+	// fasdfadsf
 	return 3;
-
 }
-void TestDD::ccc(){
+void TestDD::ccc()
+{
 
 	return;
 }
-int TestDD::done() {
+int TestDD::done()
+{
 
 	return 5;
 }

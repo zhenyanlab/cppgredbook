@@ -1,7 +1,8 @@
-extern int  MAXCOUNT;
+extern int MAXCOUNT;
 namespace comm_ss
 {
-    int getMMM(){
+    int getMMM()
+    {
         return MAXCOUNT;
     }
 }

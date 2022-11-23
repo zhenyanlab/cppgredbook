@@ -10,60 +10,65 @@ using namespace std;
 
 volatile bool isRuning = true;
 volatile int sumCount = 0;
-class Data{
-    public:
-        Data(string names){
-            this->name = names;
-            this->age = 35;
-            //this->address=["1","2","3","4","5"];
-            this->add2 = new string("test");
+class Data
+{
+public:
+    Data(string names)
+    {
+        this->name = names;
+        this->age = 35;
+        // this->address=["1","2","3","4","5"];
+        this->add2 = new string("test");
 
-            // this->add3 = new vector<string>();
-            this->add3.push_back("vector-it0");
-            this->add3.push_back("vector-it1");
-            this->add4 = new vector<string>;
-            this->add4->push_back("add4-1");
-            this->add4->push_back("add4-2");
+        // this->add3 = new vector<string>();
+        this->add3.push_back("vector-it0");
+        this->add3.push_back("vector-it1");
+        this->add4 = new vector<string>;
+        this->add4->push_back("add4-1");
+        this->add4->push_back("add4-2");
+    }
+    void to_strings()
+    {
+        std::cout << this << "|" << this->name << "|" << this->age << "|" << *(this->add2) << std::endl;
+        for (auto it : this->add3)
+        {
+            std::cout << "vector-for" << this << "|" << it << std::endl;
         }
-        void to_strings(){
-            std::cout << this << "|"<< this->name << "|"<< this->age << "|"<< *(this->add2) << std::endl;
-            for (auto it :this->add3){
-                  std::cout <<"vector-for"<< this << "|" << it << std::endl;
-            }
-            for (auto it2 :*(this->add4)){
-                  std::cout <<"vector-for-add4"<< this << "|" << it2 << std::endl;
-            }
+        for (auto it2 : *(this->add4))
+        {
+            std::cout << "vector-for-add4" << this << "|" << it2 << std::endl;
         }
-        std::string  name;
-        int age;
-        std::string address [5];
-        std::string * add2;
-        vector<string> add3;
-        vector<string> * add4;
-        
+    }
+    std::string name;
+    int age;
+    std::string address[5];
+    std::string *add2;
+    vector<string> add3;
+    vector<string> *add4;
 };
-void func3(Data ** ppdata){
+void func3(Data **ppdata)
+{
     Data d("d");
     d.to_strings();
-    Data *  pdata1 =new Data("pdata1");
+    Data *pdata1 = new Data("pdata1");
     pdata1->to_strings();
-    Data *  pdata2 =&d;
+    Data *pdata2 = &d;
     //*ppdata = (Data * )malloc(100);
     ppdata = &pdata1;
     (*ppdata)->to_strings();
-    Data ** ppdata2 = &pdata1;
+    Data **ppdata2 = &pdata1;
 }
 void func1()
 {
-    Data * pdata = new Data("pdata");
-    Data ** ppdata ;
+    Data *pdata = new Data("pdata");
+    Data **ppdata;
     func3(ppdata);
 
     std::string key = "AaBbcD";
     std::unordered_map<std::string, std::vector<std::string>> map_;
     std::transform(key.begin(), key.end(), key.begin(), ::tolower);
     std::cout << key << std::endl;
-    //map_.insert()
+    // map_.insert()
     std::vector<char> strList;
     strList.push_back('w');
     strList.push_back('W');
@@ -108,8 +113,6 @@ void func1()
     const char *charss = str2.c_str();
     std::cout << charss << std::endl;
 
-
-
     static int cnt1 = 0;
     while (isRuning)
     {
@@ -130,7 +133,8 @@ void func2()
     }
 }
 
-TEST(main, boostTest) {
+TEST(main, boostTest)
+{
     std::cout << "start main thread" << std::endl;
     boost::thread thread1(&func1);
     boost::thread thread2(&func2);
