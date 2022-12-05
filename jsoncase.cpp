@@ -5,7 +5,7 @@
 #include <memory>
 #include <ctime>
 #include <thread>
-
+#include <event2/event.h>
 #define EXIT_SUCCESS 0
 using namespace std;
 TEST(jsoncase, p1)
@@ -131,3 +131,42 @@ TEST(jsoncase,stdthread){
     std::cout <<"main-done:" << now2-now << std::endl;
 
 }
+
+class tt{
+    public:
+    tt() noexcept = default;
+    tt operator<< (const tt & t) const = delete;
+    // tt operator<< (const tt & t) const {
+    //     std::cout <<"operator-<< is not implemented" << std::endl;
+    //     return t;            
+    // }
+    // tt(tt t) = delete;
+    tt( tt& t) = delete;
+    tt(const tt& t) = delete;
+    tt(const tt&& )=delete;
+};
+TEST(jsonCase,classInit){
+    
+    //以下都不能执行
+    //tt t;
+    //tt ct;
+    //t << ct;
+
+    //t << "ct";
+    tt t();
+    //tt tt(t);
+    //tt(tt& t) = delete;
+    //tt ttt(&t);
+    //tt(tt&& )=delete;
+    //tt ttt(std::move(t));
+}
+
+
+//TODO//Allocator（概念）是对访问、寻址、分配、释放、构造和析构策略的封装。
+
+
+TEST(jsonCase ,libevent)
+{
+     
+}
+
