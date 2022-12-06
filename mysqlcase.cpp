@@ -67,8 +67,9 @@ int get_all_p_list(vector<person_t> * db_p_list){
         std::string names = result->getString("names");
         int user_id = result->getInt("user_id"); 
         std::string created = result->getString("created");
-        std::string names2 = names.c_str();
-        t.name = names2.c_str();
+        std::string *  names2 = new std::string();
+        names2->append(names);
+        t.name = names2->c_str();
         std::cout <<"db-scan:"<<  t.name  << std::endl;
         t.user_id = user_id;
         t.created = created.c_str();
@@ -76,19 +77,21 @@ int get_all_p_list(vector<person_t> * db_p_list){
 
      //   snprintf(str,sizeof(str),"%s",source); 		//建议size位传入sizeof(str)，源串中拷贝size－1个字符到目标串中
 
-        // std::string temp_str = std::to_string(i);
-        // const char* temp_char = temp_str.c_str();
-        // std::string const& cc = std::string("TEST") + std::string(temp_char);
-        // char const* url_v = cc.c_str();
-        t.testd = "TTT";
+        std::string temp_str = std::to_string(i);
+        const char* temp_char = temp_str.c_str();
+        std::string * cc = new std::string("TEST") ;// + ;
+        cc->append(std::string(temp_char));//
+        std::cout << "testd:"<<cc->c_str()<<std::endl;
+        const char * url_v = cc->c_str();
+        t.testd = url_v;
         db_p_list->insert(db_p_list->end(), t);
         cout << "struts:" <<(*db_p_list)[0].name << std::endl;
         cout << id << "\t\t" << names << "\t\t" << user_id << "\t\t" << created << endl;
-
+    //    delete names2;
     }
 
     // 释放对象
-    //delete result;
+    delete result;
     delete state;
     delete con;
     retcode =0;
