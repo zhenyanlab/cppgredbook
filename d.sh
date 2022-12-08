@@ -5,4 +5,5 @@ else
 	echo "build G++ ERROR"
 fi
 # start test case
+# setenv("MALLOC_TRACE", "mtrace.out", 1)
 #./a.out -test=true
