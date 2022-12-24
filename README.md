@@ -1,1 +1,2 @@
 -lgtest -lpthread -lgflags -lglog -lcurl -lboost_thread -lworkflow
+-ljsoncpp -lmysqlcppconn8 -lmysqlclient  -lmysqlcppconn -lz -lm -lrt -lssl -lcrypto  -lfmt -lfolly  -ldouble-conversion

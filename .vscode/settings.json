@@ -76,6 +76,16 @@
     "ctime": "cpp",
     "ratio": "cpp",
     "mutex": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "bitset": "cpp",
+    "cinttypes": "cpp",
+    "cstring": "cpp",
+    "list": "cpp",
+    "unordered_set": "cpp",
+    "numeric": "cpp",
+    "random": "cpp",
+    "shared_mutex": "cpp",
+    "typeindex": "cpp",
+    "variant": "cpp"
   }
 }
